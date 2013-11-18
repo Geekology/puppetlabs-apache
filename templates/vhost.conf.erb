@@ -54,4 +54,8 @@
 <%= scope.function_template(['apache/vhost/_wsgi.erb']) -%>
 <%= scope.function_template(['apache/vhost/_custom_fragment.erb']) -%>
 <%= scope.function_template(['apache/vhost/_fastcgi.erb']) -%>
+
+<% if @includeconf -$>
+  Include <%= @includeconf %>
+<% end -%>
 </VirtualHost>

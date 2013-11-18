@@ -134,6 +134,7 @@ define apache::vhost(
     $fastcgi_socket              = undef,
     $fastcgi_dir                 = undef,
     $additional_includes         = [],
+    $includeconf                 = undef,
   ) {
   # The base class must be included first because it is used by parameter defaults
   if ! defined(Class['apache']) {
@@ -421,6 +422,7 @@ define apache::vhost(
   #   - $wsgi_daemon_process
   #   - $wsgi_process_group
   #   - $wsgi_script_aliases
+  # $includeconf
   file { "${priority_real}-${filename}.conf":
     ensure  => $ensure,
     path    => "${apache::vhost_dir}/${priority_real}-${filename}.conf",
